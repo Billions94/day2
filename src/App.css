@@ -13,9 +13,18 @@
   margin-left: -70px;
 }
 
+.d-flex {
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.d-flex::-webkit-scrollbar {
+  display: none;
+}
+
 .clamp {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

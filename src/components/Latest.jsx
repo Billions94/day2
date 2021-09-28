@@ -23,28 +23,30 @@ class Latest extends Component {
     render() {
         return (
             <Container className="mb-5 fluid">
-                {/* <Dropdown className="mr">
-                    <Dropdown.Toggle variant="warning" id="dropdown-basic" className="browseBtn">
-                        Browse
-                    </Dropdown.Toggle>
+                <div className="mb-5">
+                    <Dropdown className="mr">
+                        <Dropdown.Toggle variant="warning" id="dropdown-basic" className="browseBtn">
+                            Browse
+                        </Dropdown.Toggle>
 
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Histor</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Romance</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Fantasy</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown> */}
-                <div className=" flex justify-content-center">
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Histor</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Romance</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Fantasy</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
+                <div className="d-flex">
                       {
                           // <Col xs={12} md={3} className="mr-1" >                        
                           books.map(book => (  
                             <div>
-                                <Card className="col-12 col-md-3 mr-2 mb-3 p-0 cardborder" key={book.id}>
+                                <Card className="mr-3 mb-3 p-0 cardborder" key={book.id}  style={{ width: '16rem' }}>
                                     <Card.Img variant="top" src={book.img}  style={{ height: '20rem' }} />
                                     <Card.Body>
                                         <Card.Title className="clamp">{book.title}</Card.Title>
                                         <h5 className="d-inline-block">
-                                            {book.category}
+                                          Category:   {book.category}
                                         </h5>                               
                                         <div className="d-flex justify-content-between">
                                             <Button variant="warning">Buy</Button>
