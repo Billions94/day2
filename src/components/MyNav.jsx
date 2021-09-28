@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 
 
 const MyNav = () => (
-        <Navbar collapseOnSelect expand="lg" bg="" variant="dark" sticky="top" className="navDark">
+        <Navbar collapseOnSelect expand="lg" bg="" variant="dark" className="navDark sticky-top ">
         <Navbar.Brand href="#home"><em className="bold">Alex books</em> <img src="./assets/bookIcon.png" className = "bookIcon"/></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

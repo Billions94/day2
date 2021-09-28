@@ -1,9 +1,9 @@
 
 
 const MyFooter = () => (
-    <div className="mynav mb-4">
-        <h1>Alex Books®</h1>
-    <h3 className="mynav">Contact us </h3>
+    <div className="mynav">
+        <h1 className="bold">Alex Books™️</h1>
+        <a href = "mailto: ajlexy70@gmail.com" className="mynav">Contact Us</a>
     </div>
 )
 
