@@ -1,23 +1,30 @@
 import { Component } from 'react'
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
+// import Row from 'react-bootstrap/Row'
+import Dropdown from 'react-bootstrap/Dropdown'
 // import Col from 'react-bootstrap/Col'
-import Form from 'react-bootstrap/Form'
+// import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import books from '../data/horror.json'
-
+// Books data
+import horror from '../data/horror.json'
 import history from '../data/history.json'
 import fantasy from '../data/fantasy.json'
 import romance from '../data/romance.json'
 
-let booksArray = [books, history, fantasy, romance]
-console.log(booksArray)
+let booksArray = [
+    {genre: 'Horror', category: horror}, 
+    {genre: 'History', category:history},
+    {genre: 'Fantasy',category:fantasy},
+    {genre: 'Romance',category:romance}
+]
+// console.log(booksArray)
 
 class Latest extends Component {
 
     state = {
-        selectedBook: null,
+        category: booksArray[0].category,
+        genre: booksArray[0].genre,
     }
 
 
@@ -26,25 +33,31 @@ class Latest extends Component {
             <Container className="mb-5 fluid">
                 <div className="mb-5">
                 
-                    <Form.Group controlId="exampleForm.SelectCustomSizeSm" className="text-light formWidth">
-                        <Form.Label>Select books</Form.Label>
-                        <Form.Control as="select" size="sm" custom 
-                        onChange={(e) => this.setState({selectedBook: e.target.value })}>
-                        <option value="horror">Horror</option>
-                        <option value="history">History</option>
-                        <option value="fantansy">Fantansy</option>
-                        <option value="romance">Romance</option>
-                        </Form.Control>
-                    </Form.Group>
-                    <p className="text-light">Choose category: {this.state.selectedBook}</p>
+                <Dropdown>
+                    <Dropdown.Toggle variant="warning" id="dropdown-basic">
+                        Browse Books
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        {
+                            booksArray.map((category,i) => (
+                            <Dropdown.Item key={i} 
+                            onClick={() => this.setState({
+                                category: category.category, genre: category.genre})}
+                            >{category.genre}</Dropdown.Item>
+                            ))
+                        }
+                    </Dropdown.Menu>
+                </Dropdown>
+                   
                 </div>
-                <h1 className="text-light mt-5 text-left bold">Horror</h1>
+                <h1 className="text-light mt-5 text-left bold">{this.state.genre}</h1>
                 <div className="d-flex">
                       {                      
-                          books.map(book => (  
-                            <div >
+                          this.state.category.map(book => (  
+                            <div key={book.asin}>
                                 <Card className="mr-4 mb-3 p-0 cardborder"  style={{ width: '16rem' }}>
-                                    <Card.Img variant="top" src={book.img}  style={{ height: '20rem' }} />
+                                    <Card.Img variant="top" src={book.img} alt=" " style={{ height: '20rem' }} />
                                     <Card.Body className="cardbody">
                                         <Card.Title className="clamp">{book.title}</Card.Title>
                                         <h5 className="d-inline-block">
@@ -61,7 +74,7 @@ class Latest extends Component {
                       } 
                 </div>
 
-                    <h1 className="text-light mt-5 text-left bold">History</h1>
+                    {/* <h1 className="text-light mt-5 text-left bold">History</h1>
                 <div className="d-flex">
                       {                      
                           booksArray[1].map(book => (  
@@ -128,7 +141,7 @@ class Latest extends Component {
                                 </div>
                                 ))
                       } 
-                </div>
+                </div> */}
 
 
 
